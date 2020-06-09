@@ -6,8 +6,12 @@
   home.packages = [
     pkgs.firefox
     pkgs.vscode
+    pkgs.fira-code
 
-    pkgs.xmodmap # To enable scroll-lock on xorg
+    pkgs.xorg.xmodmap # To enable scroll-lock on xorg
+
+    pkgs.gcc
+    pkgs.latest.rustChannels.stable.rust
   ];
 
   programs.git = {
