@@ -1,10 +1,16 @@
 { config, pkgs, ... }:
 
 {
-	home.packages = [
-		pkgs.ion
-		pkgs.starship
+	home.packages = with pkgs; [
+		ion
+		starship
+		exa
 	];
 
-    home.file.".config/ion/initrc".text = "eval $(starship init ion)";
+    home.file.".config/ion/initrc".text = ''
+		alias ls = "exa"
+		alias ll = "exa --long --header --group-directories-first"
+
+		eval $(starship init ion)
+	'';
 }
