@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./shell.nix
+  ];
+
   programs.home-manager.enable = true;
 
   home.packages = [

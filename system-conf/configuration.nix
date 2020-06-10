@@ -19,7 +19,6 @@
     keyMap = "it";
   };
 
-  config.nixpkgs.allowUnfree = true;
 
 
   # System packages
@@ -32,9 +31,11 @@
   services.xserver.displayManager.gdm.enable = true;
 
 
+
   # Users
   users.users.samuele = {
     isNormalUser = true;
+    shell = "${pkgs.ion}/bin/ion";
     extraGroups = [ "wheel" "sudo" ];
   };
 
