@@ -13,6 +13,7 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
       rustup toolchain install stable
       rustup component add rls
       rustup component add rust-analysis
+      rustup component add rust-src
     '';
   };
 }
