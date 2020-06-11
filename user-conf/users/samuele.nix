@@ -3,6 +3,7 @@
 {
   imports = [
     ../setups/terminal.nix
+    ../setups/rust.nix
   ];
 
   home.packages = with pkgs; [
