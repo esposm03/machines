@@ -4,15 +4,13 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./machine-configuration.nix
     ];
 
 
   # General configuration
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 20;
-
-  networking.hostName = "SamuelePCNix";
-  time.timeZone = "Europe/Rome";
 
   console = {
     font = "Lat2-Terminus16";
