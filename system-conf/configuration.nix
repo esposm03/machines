@@ -17,6 +17,8 @@
     keyMap = "it";
   };
 
+  system.autoUpgrade.enable = true;
+
 
 
   # System packages
