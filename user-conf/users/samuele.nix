@@ -10,6 +10,7 @@
     firefox
     vscode
     fira-code
+    discord
 
     xorg.xmodmap # To enable scroll-lock on xorg
   ];
