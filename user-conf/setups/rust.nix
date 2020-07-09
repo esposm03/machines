@@ -10,10 +10,6 @@ with import <home-manager/modules/lib/dag.nix> { inherit lib; };
 
   home.activation = {
     rust = dagEntryAfter ["writeBoundary"] ''
-      rustup toolchain install stable
-      rustup component add rls
-      rustup component add rust-analysis
-      rustup component add rust-src
     '';
   };
 }
