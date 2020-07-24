@@ -29,10 +29,10 @@
 
       (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
         mktplcRef = {
-          name = "nix-env-selector";
-          publisher = "arrterian";
-          version = "0.1.2";
-          sha256 = "693371af5b1a51a37d23cd946020ec42f1fd5015a3b9efc14a75263103a7b1d8";
+          name = "rust-analyzer";
+          publisher = "matklad";
+          version = "0.2.248";
+          sha256 = "244c4ec2bb8e4f35a081058214551c83418e9ad5bf9757126641b8ef10ee40e8";
         };
       })
     ];
