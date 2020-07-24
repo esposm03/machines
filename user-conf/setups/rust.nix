@@ -11,4 +11,24 @@ in
       cargo-edit
       gcc
     ];
+
+    programs.vscode.extensions = [
+      (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+        mktplcRef = {
+          name = "rust";
+          publisher = "rust-lang";
+          version = "0.7.8";
+          sha256 = "637dda81234c5666950907587799b3c2388ae494d94edcd39264864d0ad2360d";
+        };
+      })
+    ];
+
+    programs.vscode.userSettings = {
+      "rust-client.disableRustup" = true;
+      "rust-client.engine" = "rust-analyzer";
+      "files.exclude" = {
+        "**/Cargo.lock" = true;
+        "**/target" = true;
+      };
+    };
   }
