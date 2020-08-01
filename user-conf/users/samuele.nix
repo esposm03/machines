@@ -1,68 +1,68 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ../setups/terminal.nix
-    ../setups/rust.nix
-  ];
+	imports = [
+		../setups/terminal.nix
+		../setups/rust.nix
+	];
 
-  home.packages = with pkgs; [
-    firefox
-    fira-code
-    discord
+	home.packages = with pkgs; [
+		firefox
+		fira-code
+		discord
 
-    xorg.xmodmap # To enable scroll-lock on xorg
-  ];
+		xorg.xmodmap # To enable scroll-lock on xorg
+	];
 
-  programs.git = {
-    enable = true;
-    userName = "esposm03";
-    userEmail = "36164633+esposm03@users.noreply.github.com";
-  };
+	programs.git = {
+		enable = true;
+		userName = "esposm03";
+		userEmail = "36164633+esposm03@users.noreply.github.com";
+	};
 
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscode;
-    extensions = with pkgs.vscode-extensions; [
-      bbenoist.Nix
-      vscodevim.vim
+	programs.vscode = {
+		enable = true;
+		package = pkgs.vscode;
+		extensions = with pkgs.vscode-extensions; [
+			bbenoist.Nix
+			vscodevim.vim
 
-      (pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-        mktplcRef = {
-          name = "rust-analyzer";
-          publisher = "matklad";
-          version = "0.2.248";
-          sha256 = "244c4ec2bb8e4f35a081058214551c83418e9ad5bf9757126641b8ef10ee40e8";
-        };
-      })
-    ];
+			(pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+				mktplcRef = {
+					name = "rust-analyzer";
+					publisher = "matklad";
+					version = "0.2.248";
+					sha256 = "244c4ec2bb8e4f35a081058214551c83418e9ad5bf9757126641b8ef10ee40e8";
+				};
+			})
+		];
 
-    userSettings = {
-      "explorer.openEditors.visible" = 0;
-      "editor.fontFamily" = "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'";
-      "editor.fontLigatures" = true;
-      "editor.cursorSmoothCaretAnimation" = true;
-      "editor.smoothScrolling" = true;
-      "explorer.confirmDelete" = false;
-      "window.zoomLevel" = 0;
-      "editor.lineNumbers" = "relative";
-      "files.exclude" = {
-          "**/.DS_Store" = false;
-          "**/.hg" = false;
-          "**/.nix-pkgconfig" = true;
-          "**/.svn" = false;
-          "**/CVS" = false;
-      };
-      "workbench.startupEditor" = "newUntitledFile";
-      "editor.insertSpaces" = false;
-      "git.autofetch" = true;
-      "git.confirmSync" = false;
-      "explorer.confirmDragAndDrop" = false;
-      "todo-tree.tree.showScanModeButton" = false;
-      "diffEditor.ignoreTrimWhitespace" = false;
-      "workbench.colorTheme" = "Firefox Quantum Dark";
-      "extensions.ignoreRecommendations" = true;
-    };
-  };
+		userSettings = {
+			"explorer.openEditors.visible" = 0;
+			"editor.fontFamily" = "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'";
+			"editor.fontLigatures" = true;
+			"editor.cursorSmoothCaretAnimation" = true;
+			"editor.smoothScrolling" = true;
+			"explorer.confirmDelete" = false;
+			"window.zoomLevel" = 0;
+			"editor.lineNumbers" = "relative";
+			"files.exclude" = {
+					"**/.DS_Store" = false;
+					"**/.hg" = false;
+					"**/.nix-pkgconfig" = true;
+					"**/.svn" = false;
+					"**/CVS" = false;
+			};
+			"workbench.startupEditor" = "newUntitledFile";
+			"editor.insertSpaces" = false;
+			"git.autofetch" = true;
+			"git.confirmSync" = false;
+			"explorer.confirmDragAndDrop" = false;
+			"todo-tree.tree.showScanModeButton" = false;
+			"diffEditor.ignoreTrimWhitespace" = false;
+			"workbench.colorTheme" = "Firefox Quantum Dark";
+			"extensions.ignoreRecommendations" = true;
+		};
+	};
 
 }
