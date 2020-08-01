@@ -35,7 +35,7 @@
 	# Users
 	users.users.samuele = {
 		isNormalUser = true;
-		shell = "${pkgs.ion}/bin/ion";
+		shell = "${pkgs.fish}/bin/fish";
 		extraGroups = [ "wheel" "sudo" ];
 	};
 
