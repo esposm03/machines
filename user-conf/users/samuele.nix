@@ -11,8 +11,12 @@
 		fira-code
 		discord
 
+		neovim
+
 		xorg.xmodmap # To enable scroll-lock on xorg
 	];
+
+	home.sessionVariables.EDITOR = "${pkgs.neovim}/bin/nvim";
 
 	programs.direnv.enable = true;
 	programs.direnv.enableNixDirenvIntegration = true;
