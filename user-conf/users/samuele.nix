@@ -38,14 +38,8 @@
 		];
 
 		userSettings = {
-			"explorer.openEditors.visible" = 0;
-			"editor.fontFamily" = "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'";
-			"editor.fontLigatures" = true;
-			"editor.cursorSmoothCaretAnimation" = true;
-			"editor.smoothScrolling" = true;
-			"explorer.confirmDelete" = false;
-			"window.zoomLevel" = 0;
-			"editor.lineNumbers" = "relative";
+			"workbench.startupEditor" = "newUntitledFile";
+			"workbench.colorTheme" = "Ayu Dark Bordered";
 			"files.exclude" = {
 					"**/.DS_Store" = false;
 					"**/.hg" = false;
@@ -53,14 +47,20 @@
 					"**/.svn" = false;
 					"**/CVS" = false;
 			};
-			"workbench.startupEditor" = "newUntitledFile";
+
+			"explorer.openEditors.visible" = 0;
+			"explorer.confirmDelete" = false;
+			"explorer.confirmDragAndDrop" = false;
+			"editor.fontFamily" = "'Fira Code', monospace, 'Droid Sans Fallback'";
+			"editor.fontLigatures" = true;
+			"editor.cursorSmoothCaretAnimation" = true;
+			"editor.smoothScrolling" = true;
 			"editor.insertSpaces" = false;
+			"editor.lineNumbers" = "relative";
+
 			"git.autofetch" = true;
 			"git.confirmSync" = false;
-			"explorer.confirmDragAndDrop" = false;
 			"todo-tree.tree.showScanModeButton" = false;
-			"diffEditor.ignoreTrimWhitespace" = false;
-			"workbench.colorTheme" = "Firefox Quantum Dark";
 			"extensions.ignoreRecommendations" = true;
 		};
 	};
