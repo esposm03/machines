@@ -14,6 +14,9 @@
 		xorg.xmodmap # To enable scroll-lock on xorg
 	];
 
+	programs.direnv.enable = true;
+	programs.direnv.enableNixDirenvIntegration = true;
+
 	programs.git = {
 		enable = true;
 		userName = "esposm03";
