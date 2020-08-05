@@ -11,4 +11,5 @@
 	};
 	programs.starship.enable = true;
 	programs.git.delta.enable = true;
+	programs.git.delta.options.side-by-side = true;		
 }
