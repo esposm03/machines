@@ -5,21 +5,23 @@
 	''
 	### Variables
 	set $mod Mod4
+	set $term "${pkgs.alacritty}/bin/alacritty"
+	set $kb_layout "it"
+	set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
 	set $left h
 	set $down j
 	set $up k
 	set $right l
-	set $term gnome-terminal
 
-	input * xkb_layout "it"
+	input * xkb_layout $kb_layout
+	default_border pixel 5
+	gaps inner 10
+	gaps outer 10
 
-	# Your preferred application launcher
-	# Note: pass the final command to swaymsg so that the resulting window can be opened
-	# on the original workspace that the command was run on.
-	set $menu dmenu_path | dmenu | xargs swaymsg exec --
-
-	### Output configuration
-	# output * bg ~/.config/sway/backgrounds/Sway_Wallpaper_Blue_1920x1080.png fill
+	### Colors configuration
+	# class                 border  backgr. text    indicator child_border
+	client.focused		#e6b450	#0a0e14	#b3b1ad	#4d5566	  #e6b450
 
 	### Idle configuration
 	exec swayidle -w \
@@ -57,7 +59,7 @@
 	    bindsym $mod+$up focus up
 	    bindsym $mod+$right focus right
 
-	    # Move the focused window with the same, but add Shift
+	    # Move the focused window around
 	    bindsym $mod+Shift+$left move left
 	    bindsym $mod+Shift+$down move down
 	    bindsym $mod+Shift+$up move up
@@ -124,27 +126,18 @@
 	#
 	# Resizing containers:
 	#
-	mode "resize" {
-	    # left will shrink the containers width
-	    # right will grow the containers width
-	    # up will shrink the containers height
-	    # down will grow the containers height
-	    bindsym $left resize shrink width 10px
-	    bindsym $down resize grow height 10px
-	    bindsym $up resize shrink height 10px
-	    bindsym $right resize grow width 10px
+	    mode "resize" {
+                bindsym $left resize shrink width 10px
+                bindsym $down resize grow height 10px
+                bindsym $up resize shrink height 10px
+                bindsym $right resize grow width 10px
 
-	    # Ditto, with arrow keys
-	    bindsym Left resize shrink width 10px
-	    bindsym Down resize grow height 10px
-	    bindsym Up resize shrink height 10px
-	    bindsym Right resize grow width 10px
-
-	    # Return to default mode
-	    bindsym Return mode "default"
-	    bindsym Escape mode "default"
-	}
-	bindsym $mod+r mode "resize"
+                # Return to default mode
+                bindsym Return mode "default"
+                bindsym Escape mode "default"
+	        bindsym $mod+r mode "default"
+            }
+	    bindsym $mod+r mode "resize"
 
 	#
 	# Status Bar:

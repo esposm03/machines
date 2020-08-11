@@ -1,7 +1,15 @@
 { config, pkgs, ... }:
 
 {
-	home.packages = [pkgs.bat pkgs.exa];
+	home.packages = [pkgs.bat pkgs.exa pkgs.fd];
+
+	programs.alacritty.enable = true;
+	programs.alacritty.settings = {
+		colors.primary = {
+			background = "#0a0e14";
+			foreground = "#b3b1ad";
+		};
+	};
 
 	programs.fish.enable = true;
 	programs.fish.shellAliases = {
