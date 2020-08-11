@@ -3,6 +3,7 @@
 {
 	imports = [
 		../setups/terminal.nix
+		../setups/sway.nix
 		../setups/rust.nix
 	];
 
