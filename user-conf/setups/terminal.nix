@@ -9,6 +9,13 @@
 			background = "#0a0e14";
 			foreground = "#b3b1ad";
 		};
+		font = {
+			normal.family = "Fira Code";
+			normal.style = "Regular";
+
+			bold.family = "Fira Code";
+			bold.style = "Bold";
+		};
 	};
 
 	programs.fish.enable = true;
