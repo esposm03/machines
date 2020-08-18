@@ -3,6 +3,7 @@
 {
 	home.packages = [pkgs.bat pkgs.exa pkgs.fd];
 
+	# Terminal Emulator
 	programs.alacritty.enable = true;
 	programs.alacritty.settings = {
 		colors.primary = {
@@ -18,6 +19,7 @@
 		};
 	};
 
+	# Tools
 	programs.fish.enable = true;
 	programs.fish.shellAliases = {
 		ls = "exa";
@@ -27,4 +29,5 @@
 	programs.starship.enable = true;
 	programs.git.delta.enable = true;
 	programs.git.delta.options.side-by-side = true;		
+	xdg.configFile."nvim/init.vim".source = ./init.vim;
 }
