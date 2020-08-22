@@ -19,6 +19,8 @@
 
 	system.autoUpgrade.enable = true;
 
+	fonts.fonts = with pkgs; [ cascadia-code fira-code ];
+
 
 
 	# System packages

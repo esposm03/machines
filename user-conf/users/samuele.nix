@@ -15,7 +15,6 @@
 		# Utilities
 		firefox
 		discord
-		neovim
 	];
 
 	home.sessionVariables.EDITOR = "${pkgs.neovim}/bin/nvim";

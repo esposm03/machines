@@ -1,9 +1,27 @@
+# This module provides the configuration for my terminal setup.
+# It installs the alacritty terminal emulator, and the `{Cascadia,Fira} Code`
+# fonts.
+#
+# It also installs these tools:
+# - Fish: my shell
+# - Neovim: my editor
+# - Exa: a substitute for ls
+# - Bat: a substitute for cat
+# - Zoxide: a substitute for cd
+#
+# And shell configurations:
+# - Starship: a really fast prompt
+# - Delta: a diff viewer
+# - Direnv: per-directory environments, 
+# mainly used to integrate `nix-shell` with all my setup
+
 { config, pkgs, ... }:
 
-{
-	home.packages = [pkgs.bat pkgs.exa pkgs.fd];
+let greeting = "";
+in {
 
-	# Terminal Emulator
+	# Basics
+	programs.fish.enable = true;
 	programs.alacritty.enable = true;
 	programs.alacritty.settings = {
 		colors.primary = {
@@ -11,23 +29,48 @@
 			foreground = "#b3b1ad";
 		};
 		font = {
-			normal.family = "Fira Code";
+			normal.family = "Cascadia Code";
 			normal.style = "Regular";
-
-			bold.family = "Fira Code";
-			bold.style = "Bold";
 		};
 	};
 
-	# Tools
-	programs.fish.enable = true;
-	programs.fish.shellAliases = {
-		ls = "exa";
-		ll = "exa --long --header --group-directories-first";
-		cat = "bat";
+	# Editor
+	programs.neovim.enable = true;
+	programs.neovim.configure = {
+
+		# Configuration file
+		customRC = ''
+			set termguicolors
+			let ayucolor = "dark"
+			let g:airline_theme = "ayu_dark"
+			colorscheme ayu
+		'';
+
+		# Plugins
+		packages.myVimPackage.start = with pkgs.vimPlugins; [
+			vim-airline
+			auto-pairs
+
+			# Themes
+			ayu-vim
+			vim-airline-themes
+		];
+
 	};
+
+	# Tools
+	home.packages = with pkgs; [ ripgrep fd tealdeer ];
+	programs.fish.shellAliases = with pkgs; {
+		ls = "${exa}/bin/exa";
+		ll = "${exa}/bin/exa --long --header --group-directories-first";
+		cat = "${bat}/bin/bat --plain";
+	};
+	programs.direnv.enableNixDirenvIntegration = true;
+	programs.zoxide.enable = true;
+
+	# Background tools
 	programs.starship.enable = true;
 	programs.git.delta.enable = true;
 	programs.git.delta.options.side-by-side = true;		
-	xdg.configFile."nvim/init.vim".source = ./init.vim;
+
 }
