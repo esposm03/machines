@@ -1,34 +1,27 @@
 { config, pkgs, ... }:
 
 {
-	imports =
-		[
-			./hardware-configuration.nix
-			./machine-configuration.nix
-		];
+	imports = [
+		./hardware-configuration.nix
+	];
 
 
 	# General configuration
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.systemd-boot.configurationLimit = 20;
-
+	system.autoUpgrade.enable = true;
 	console = {
 		font = "Lat2-Terminus16";
 		keyMap = "it";
 	};
-
-	system.autoUpgrade.enable = true;
-
-	fonts.fonts = with pkgs; [ cascadia-code fira-code ];
+	time.timeZone = "Europe/Rome";
 
 
 
-	# System packages
-	environment.systemPackages = with pkgs; [
-		wget neovim
-	];
-
+	# Programs
+	environment.systemPackages = [ pkgs.wget pkgs.neovim ];
 	programs.sway.enable = true;
+	fonts.fonts = with pkgs; [ cascadia-code fira-code ];
 
 
 
