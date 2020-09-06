@@ -65,6 +65,7 @@ in {
 		ll = "${exa}/bin/exa --long --header --group-directories-first";
 		cat = "${bat}/bin/bat --plain";
 	};
+	programs.direnv.enable = true;
 	programs.direnv.enableNixDirenvIntegration = true;
 	programs.zoxide.enable = true;
 
