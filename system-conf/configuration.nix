@@ -9,13 +9,17 @@
 	# General configuration
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.systemd-boot.configurationLimit = 20;
+
 	system.autoUpgrade.enable = true;
+	time.timeZone = "Europe/Rome";
 	console = {
 		font = "Lat2-Terminus16";
 		keyMap = "it";
 	};
-	time.timeZone = "Europe/Rome";
 
+	# Hardware configuration
+	hardware.pulseaudio.enable = true;
+	hardware.opengl.enable = true;
 
 
 	# Programs
