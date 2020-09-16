@@ -1,40 +1,39 @@
 { config, pkgs, ... }:
 
 {
-	imports = [
-		./hardware-configuration.nix
-	];
+  imports = [ ./hardware-configuration.nix ];
 
+  # System configuration
+  boot.loader.systemd-boot.enable = true;
 
-	# General configuration
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.systemd-boot.configurationLimit = 20;
+  system.autoUpgrade.enable = true;
+  nix.gc.automatic = true;
+  nix.gc.options = "--delete-older-than 7d";
 
-	system.autoUpgrade.enable = true;
-	time.timeZone = "Europe/Rome";
-	console = {
-		font = "Lat2-Terminus16";
-		keyMap = "it";
-	};
+  nix.package = pkgs.nixUnstable;
+  nix.extraOptions = "experimental-features = nix-command flakes";
 
-	# Hardware configuration
-	hardware.pulseaudio.enable = true;
-	hardware.opengl.enable = true;
-
-
-	# Programs
-	environment.systemPackages = [ pkgs.wget pkgs.neovim ];
-	programs.sway.enable = true;
-	fonts.fonts = with pkgs; [ cascadia-code fira-code ];
+  time.timeZone = "Europe/Rome";
+  console = {
+    font = "Lat2-Terminus16";
+    keyMap = "it";
+  };
 
 
 
-	# Users
-	users.users.samuele = {
-		isNormalUser = true;
-		shell = "${pkgs.fish}/bin/fish";
-		extraGroups = [ "wheel" "sudo" ];
-	};
+  # System customization
+  hardware.pulseaudio.enable = true;
+  environment.systemPackages = [ pkgs.wget pkgs.neovim ];
+  programs.sway.enable = true;
+  fonts.fonts = with pkgs; [ cascadia-code fira-code ];
+
+
+
+  # Users
+  users.users.samuele = {
+    isNormalUser = true;
+    shell = "${pkgs.fish}/bin/fish";
+    extraGroups = [ "wheel" "sudo" ];
+  };
 
 }
-
