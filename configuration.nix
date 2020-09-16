@@ -36,6 +36,10 @@
 
 
   # Users
-  users.users.samuele.isNormalUser = true;
+  users.users.samuele = {
+    isNormalUser = true;
+    shell = "${pkgs.fish}/bin/fish";
+    extraGroups = ["sudo"];
+  };
   home-manager.users.samuele = import ./users/samuele.nix;
 }
