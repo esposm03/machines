@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    <home-manager/nixos>
+  ];
 
   # System configuration
   boot.loader.systemd-boot.enable = true;
@@ -22,18 +25,17 @@
 
 
   # System customization
+  home-manager.useGlobalPkgs = true;
+  nixpkgs.config.allowUnfree = true;
   hardware.pulseaudio.enable = true;
-  environment.systemPackages = [ pkgs.wget pkgs.neovim ];
   programs.sway.enable = true;
+
+  environment.systemPackages = [ pkgs.wget pkgs.neovim ];
   fonts.fonts = with pkgs; [ cascadia-code fira-code ];
 
 
 
   # Users
-  users.users.samuele = {
-    isNormalUser = true;
-    shell = "${pkgs.fish}/bin/fish";
-    extraGroups = [ "wheel" "sudo" ];
-  };
-
+  users.users.samuele.isNormalUser = true;
+  home-manager.users.samuele = import ./users/samuele.nix;
 }
