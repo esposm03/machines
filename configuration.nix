@@ -39,7 +39,7 @@
   users.users.samuele = {
     isNormalUser = true;
     shell = "${pkgs.fish}/bin/fish";
-    extraGroups = ["sudo"];
+    extraGroups = [ "wheel" ];
   };
   home-manager.users.samuele = import ./users/samuele.nix;
 }

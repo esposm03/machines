@@ -16,62 +16,62 @@
 # mainly used to integrate `nix-shell` with all my setup
 
 { config, pkgs, ... }:
-
 let greeting = "";
-in {
+in
+{
 
-	# Basics
-	programs.fish.enable = true;
-	programs.alacritty.enable = true;
-	programs.alacritty.settings = {
-		colors.primary = {
-			background = "#0a0e14";
-			foreground = "#b3b1ad";
-		};
-		font = {
-			normal.family = "Cascadia Code";
-			normal.style = "Regular";
-		};
-	};
+  # Basics
+  programs.fish.enable = true;
+  programs.alacritty.enable = true;
+  programs.alacritty.settings = {
+    colors.primary = {
+      background = "#0a0e14";
+      foreground = "#b3b1ad";
+    };
+    font = {
+      normal.family = "Cascadia Code";
+      normal.style = "Regular";
+    };
+  };
 
-	# Editor
-	programs.neovim.enable = true;
-	programs.neovim.configure = {
+  # Editor
+  programs.neovim.enable = true;
+  programs.neovim.configure = {
 
-		# Configuration file
-		customRC = ''
-			set termguicolors
-			let ayucolor = "dark"
-			let g:airline_theme = "ayu_dark"
-			colorscheme ayu
-		'';
+    # Configuration file
+    customRC = ''
+      set termguicolors
+      let ayucolor = "dark"
+      let g:airline_theme = "ayu_dark"
+      colorscheme ayu
+    '';
 
-		# Plugins
-		packages.myVimPackage.start = with pkgs.vimPlugins; [
-			vim-airline
-			auto-pairs
+    # Plugins
+    packages.myVimPackage.start = with pkgs.vimPlugins; [
+      vim-airline
+      auto-pairs
 
-			# Themes
-			ayu-vim
-			vim-airline-themes
-		];
+      # Themes
+      ayu-vim
+      vim-airline-themes
+    ];
 
-	};
+  };
 
-	# Tools
-	home.packages = with pkgs; [ ripgrep fd tealdeer ];
-	programs.fish.shellAliases = with pkgs; {
-		ls = "${exa}/bin/exa";
-		ll = "${exa}/bin/exa --long --header --group-directories-first";
-		cat = "${bat}/bin/bat --plain";
-	};
-	programs.direnv.enable = true;
-	programs.direnv.enableNixDirenvIntegration = true;
-	programs.zoxide.enable = true;
+  # Tools
+  home.packages = with pkgs; [ ripgrep fd tealdeer ];
+  programs.fish.shellAliases = with pkgs; {
+    ls = "${exa}/bin/exa";
+    ll = "${exa}/bin/exa --long --header --group-directories-first";
+    cat = "${bat}/bin/bat --plain";
+  };
+  programs.direnv.enable = true;
+  programs.direnv.enableNixDirenvIntegration = true;
+  programs.zoxide.enable = true;
 
-	# Background tools
-	programs.starship.enable = true;
-	programs.git.delta.enable = true;
-	programs.git.delta.options.side-by-side = true;		
+  # Background tools
+  programs.starship.enable = true;
+  programs.git.delta.enable = true;
+  programs.git.delta.options.side-by-side = true;
 
 }
