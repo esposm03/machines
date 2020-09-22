@@ -51,6 +51,10 @@ in
       vim-airline
       auto-pairs
 
+      coc-nvim
+      coc-css
+      coc-rust-analyzer
+
       # Themes
       ayu-vim
       vim-airline-themes
@@ -58,8 +62,8 @@ in
 
   };
 
-  # Tools
-  home.packages = with pkgs; [ ripgrep fd tealdeer ];
+  # Tools (Node is needed because of coc.nvim)
+  home.packages = with pkgs; [ ripgrep fd tealdeer nodejs ];
   programs.fish.shellAliases = with pkgs; {
     ls = "${exa}/bin/exa";
     ll = "${exa}/bin/exa --long --header --group-directories-first";
