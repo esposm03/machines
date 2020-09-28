@@ -16,8 +16,7 @@
 # mainly used to integrate `nix-shell` with all my setup
 
 { config, pkgs, ... }:
-let greeting = "";
-in
+
 {
 
   # Basics

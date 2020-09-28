@@ -1,8 +1,9 @@
-{ config, pkgs, ... }:
+with import <nixpkgs> {};
 
 {
   imports = [
-    ./hardware-configuration.nix
+    ./ignored/hardware-configuration.nix
+    ./ignored/machine-configuration.nix
     <home-manager/nixos>
   ];
 
