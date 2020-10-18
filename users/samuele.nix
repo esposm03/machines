@@ -23,6 +23,7 @@
     enable = true;
     userName = "esposm03";
     userEmail = "36164633+esposm03@users.noreply.github.com";
+    extraConfig = { pull = { rebase = true; }; };
   };
 
 }
