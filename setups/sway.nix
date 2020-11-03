@@ -5,9 +5,9 @@
     ''
       ### Variables
       set $mod Mod4
-      set $term "${pkgs.alacritty}/bin/alacritty"
+      set $term "alacritty"
       set $kb_layout "it"
-      set $menu dmenu_path | dmenu | xargs swaymsg exec --
+      set $menu "rofi -show run"
 
       set $left h
       set $down j

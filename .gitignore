@@ -1,2 +1,4 @@
 machine-configuration.nix
 hardware-configuration.nix
+home.nix
+config.nix

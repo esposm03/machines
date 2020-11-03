@@ -12,7 +12,7 @@
 # And shell configurations:
 # - Starship: a really fast prompt
 # - Delta: a diff viewer
-# - Direnv: per-directory environments, 
+# - Direnv: per-directory environments,
 # mainly used to integrate `nix-shell` with all my setup
 
 { config, pkgs, ... }:
@@ -21,6 +21,7 @@
 
   # Basics
   programs.fish.enable = true;
+  programs.fish.shellInit = "set --prepend PATH $HOME/.nix-profile/bin $HOME/.local/bin; set --export NIX_PATH $HOME/.nix-defexpr/channels";
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
     colors.primary = {
