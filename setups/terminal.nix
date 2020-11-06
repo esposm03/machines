@@ -21,7 +21,7 @@
 
   # Basics
   programs.fish.enable = true;
-  programs.fish.shellInit = "set --prepend PATH $HOME/.nix-profile/bin $HOME/.local/bin; set --export NIX_PATH $HOME/.nix-defexpr/channels";
+  programs.fish.shellInit = "set --prepend PATH $HOME/.cargo/bin $HOME/.nix-profile/bin $HOME/.local/bin; set --export NIX_PATH $HOME/.nix-defexpr/channels";
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
     colors.primary = {

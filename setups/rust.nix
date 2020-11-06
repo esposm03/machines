@@ -2,12 +2,16 @@
 let
   moz_overlay = import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz);
   pkgs = import <nixpkgs> { overlays = [ moz_overlay ]; };
-  rust = pkgs.rustChannels.stable.rust.override { extensions = [ "rust-src" ]; };
 in
 {
   home.packages = with pkgs; [
-    rust
+    rustup
     cargo-edit
     gcc
   ];
+
+  programs.fish.interactiveShellInit = with pkgs; "
+    rustup toolchain link astable ${rustChannels.stable.rust} > /dev/null
+    rustup toolchain link anightly ${rustChannels.nightly.rust} > /dev/null
+  ";
 }
