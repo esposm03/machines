@@ -14,6 +14,9 @@
       set $up k
       set $right l
 
+      seat seat0 xcursor_theme "Bibata-Modern-Ice"
+      exec_always gsettings set org.gnome.desktop.interface cursor-theme "Bibata-Modern-Ice"
+
       input * xkb_layout $kb_layout
       default_border pixel 5
       gaps inner 10

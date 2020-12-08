@@ -15,6 +15,10 @@
     # Utilities
     firefox
     discord
+    zip
+
+    # Other
+    jdk14_headless
   ];
 
   home.sessionVariables.EDITOR = "${pkgs.neovim}/bin/nvim";
