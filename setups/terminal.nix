@@ -68,6 +68,12 @@
     ls = "${exa}/bin/exa";
     ll = "${exa}/bin/exa --long --header --group-directories-first";
     cat = "${bat}/bin/bat --plain";
+    cr = "cargo r";
+    ct = "cargo t";
+    cb = "cargo b";
+    gs = "git status";
+    ga = "git add";
+    gc = "git commit";
   };
   programs.direnv.enable = true;
   programs.direnv.enableNixDirenvIntegration = true;
