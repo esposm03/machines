@@ -22,6 +22,10 @@
       gaps inner 10
       gaps outer 10
 
+      input 5426:108:Razer_Razer_Mamba_Elite {
+        pointer_accel -0.5
+      }
+
       ### Colors configuration
       # class                 border  backgr. text    indicator child_border
       client.focused    #e6b450  #0a0e14  #b3b1ad  #4d5566    #e6b450

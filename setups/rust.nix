@@ -11,11 +11,18 @@ in {
   home.packages = with pkgs; [
     rustup
     cargo-edit
-    gcc
+    lld_11
   ];
 
   programs.fish.interactiveShellInit = with pkgs; "
     rustup toolchain link astable ${rust-stable} > /dev/null
-    rustup toolchain link anightly ${rust-nightly} > /dev/null
   ";
+
+  home.file."cargo-config" = {
+    text = "
+      [build]
+      rustflags = [\"-C\", \"link-arg=-fuse-ld=lld\"]
+    ";
+    target = ".cargo/config.toml";
+  };
 }
